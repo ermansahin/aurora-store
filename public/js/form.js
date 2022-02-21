@@ -95,6 +95,9 @@ const sendData = (path, data) => {
   // .then(response => {
 }                                   // processData(response); })
 
+
+
+
 // redirect to home page if user logged in
 window.onload = () => {
     if(sessionStorage.user){

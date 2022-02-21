@@ -1,7 +1,14 @@
-.search-results{
+.collection-results{
     width: 100%;
     padding: 60px 0;
 }
+
+.bag-collections {
+    width: 100%;
+    padding: 60px 0;
+
+}
+
 
 .heading{
     font-size: 20px;
