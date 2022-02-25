@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const path = require("path");
 const bodyParser = require("body-parser");
 
+
 // firebase admin setup
 
 var serviceAccount = require("./adminserverconfig.json");
@@ -49,16 +50,6 @@ app.post("/signup", async (req, res) => {
   // res.sendFile(path.join(staticPath, "./signup.html"));
 });
 
-// 404 route
-app.get("/404", (req, res) => {
-  res.sendFile(path.join(staticPath, "./404.html"));
-});
-
-app.use((req, res) => {
-  res.redirect("/404");
-});
-
-app.use(express.json());
 
 app.post("/signup", (req, res) => {
   let { name, email, password, number, tac, notification } = req.body;
@@ -103,3 +94,19 @@ app.post("/signup", (req, res) => {
       }
     });
 });
+
+// add product
+app.get('/add-product', (req, res) => {
+  res.sendFile(path.join(staticPath, "addProduct.html"));
+})
+
+// 404 route
+app.get("/404", (req, res) => {
+  res.sendFile(path.join(staticPath, "./404.html"));
+});
+
+app.use((req, res) => {
+  res.redirect("/404");
+});
+
+

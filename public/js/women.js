@@ -2,16 +2,18 @@ const womenCollection = () => {
     let section = document.querySelector('.collection-results');
 
     section.innerHTML = `
-    <h2 class="heading" id="summer-col" >Summer Collection</h2>
+    
+    <h2 class="heading" id="summer-col" >Summer Collection</h2> 
         <div  class="product-container">
             <div class="product-card">
                 <div class="product-image">
                     <img src="img/9-3-1.png" class="product-thumb" alt="">
-                    <button class="card-btn">add to shopping-cart</button>
+                    <button class="card-btn">add to shopping-cart <i class="fa-solid fa-check"></i></button> 
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">70€</h2>
                     <p class="product-short-des">Handmade κεντημένο Jean 100% cotton | one piece, size small •</p>
+                    
                 </div>
             </div>
             <div class="product-card">
@@ -190,6 +192,7 @@ const womenCollection = () => {
         <div class="product-card">
                 <div class="product-image">
                     <img src="img/23.png" class="product-thumb" alt="">
+
                     <button class="card-btn">add to shopping-cart</button>
                 </div>
                 <div class="product-info">

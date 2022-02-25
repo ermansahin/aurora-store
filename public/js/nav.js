@@ -8,7 +8,12 @@ const createNav = () => {
           <img src="img/logo.png" class="brand-logo" alt="" />
           <div class="search">
                   <input type="text" class="search-box" placeholder="search brand, product"/>
-                  <button class="search-button" onclick="search_product()"> search</button>
+                  <button onclick = 'getResults()' class="search-button"> 
+                     
+                        <p class="arama">Search</p>
+                        
+                    </a>
+                   </button>
               </div>
           <div class="nav-items">
               
@@ -19,6 +24,8 @@ const createNav = () => {
       </div>
   
       <ul class="links-container">
+
+          <li class="link-item"><a href="#" style="font-size: 15px;" class="icon" onclick="myFunction()">&#9776;</a></li>
           <li class="link-item"><a href="./index.html" class="link">home</a></li>
           <li class="link-item"><a href="./women.html" class="link">women</a></li>
           <li class="link-item"><a href="./accessories.html" class="link">accessories</a></li>
@@ -26,6 +33,16 @@ const createNav = () => {
       </ul>
       `;
   };
+
   
   createNav();
+
+  function myFunction() {
+    var x = document.getElementByClassName("link");
+    if (x.className === "link") {
+      x.className += " responsive";
+    } else {
+      x.className = "links-container";
+    }
+  }
   

@@ -28,3 +28,13 @@
     height: auto;
     grid-row-gap: 40px;
 }
+
+.info-before-search {
+    
+        font-size: 20px;
+        text-transform: capitalize;
+        font-weight: 400;
+        padding: 4vw 10vw;
+    
+}
+

@@ -32,6 +32,8 @@
 .nav-items a {
     text-decoration: none;
     color: black;
+    height: auto;
+    margin: auto;
     
 }
 
@@ -39,23 +41,32 @@
     width: 30%;
     display: flex;
     align-items: center;
+    overflow: auto;
 }
 
 .search-box{
-    width: 80%;
+    width: 25vw;
     height: 40px;
     padding: 10px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border: 1px solid #d1d1d1;
-    text-transform: capitalize;
     background: none;
     color: #a9a9a9;
     outline: none;
+    overflow: auto;
+}
+
+@media screen and (max-width: 800px) {
+    .search-box {
+        height: 35px;
+        width: 80px;
+
+    }
 }
 
 .search-button{
-    width: 30%;
+    width: 83px;
     height: 67%;
     padding: 10px 20px;
     border: none;
@@ -68,6 +79,17 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+
+ @media screen and  (max-width: 800px) {
+    .search-button {
+        width: 60px;
+        height: 35px;
+        font-size: small;
+        padding: 5px 10px;
+
+    }
+}
+  
 .search-button:hover {
     background-color: rgb(180, 180, 142);
     box-shadow: 5px 10px 10px rgba(141, 179, 166, 0.4);
@@ -77,6 +99,7 @@
 
 .search-box::placeholder{
     color: #a9a9a9;
+    overflow: hidden;
 }
 
 .nav-items a{
@@ -87,6 +110,18 @@
     width: 30px;
 }
 
+/* @media screen and (max-width: 375px)  {
+    .nav-items a img {
+        width: 20px;
+    }
+
+    
+    .search-button p {
+        display: none;
+    }
+    
+} */
+
 .links-container{
     width: 100%;
     display: flex;
@@ -94,6 +129,11 @@
     justify-content: center;
     list-style: none;
     border-top: 1px solid #d1d1d1;
+}
+
+.icon {
+    
+    display: none;
 }
 
 .link{
@@ -110,6 +150,37 @@
 .link:hover{
     opacity: 1;
 }
+
+/* @media screen and (max-width: 600px) {
+    .links-container  {
+      display: block;
+    }
+
+    .link {
+        display: none;
+    }
+    .links-container a.icon {
+      float: left;
+      display: block;
+      text-decoration: none;
+      color:#383838;
+      margin-bottom: 20px;
+    }
+  }
+
+@media screen and (max-width: 600px) {
+    .links-container.responsive {position: relative;}
+  .links-container.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .links-container.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  } */
 
 /* .shopping-cart-container {
     display: block;
