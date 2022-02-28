@@ -11,22 +11,26 @@
     width: 100%;
     background: #f5f5f5;
     z-index: 9;
+    
 }
 
 .nav{
     padding: 10px 3vw;
     display: flex;
     justify-content: space-between;
+    
 }
 
 .brand-logo{
     height: 60px;
     cursor: pointer;
+    
 }
 
 .nav-items{
     display: flex;
     align-items: center;
+    
     
 }
 .nav-items a {
@@ -38,10 +42,10 @@
 }
 
 .search{
-    width: 30%;
+    width: 60%;
     display: flex;
     align-items: center;
-    overflow: auto;
+    align-self: auto;
 }
 
 .search-box{
@@ -129,6 +133,8 @@
     justify-content: center;
     list-style: none;
     border-top: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+    
 }
 
 .icon {

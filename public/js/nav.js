@@ -7,13 +7,15 @@ const createNav = () => {
               
           <img src="img/logo.png" class="brand-logo" alt="" />
           <div class="search">
-                  <input type="text" class="search-box" placeholder="search brand, product"/>
-                  <button onclick = 'getResults()' class="search-button"> 
-                     
-                        <p class="arama">Search</p>
-                        
-                    </a>
-                   </button>
+              <ul class="links-container">
+
+                <li class="link-item"><a href="#" style="font-size: 15px;" class="icon" onclick="myFunction()">&#9776;</a></li>
+                <li class="link-item"><a href="./index.html" class="link">home</a></li>
+                <li class="link-item"><a href="./women.html" class="link">women</a></li>
+                <li class="link-item"><a href="./accessories.html" class="link">accessories</a></li>
+                <li class="link-item"><a href="./sales.html" class="link">sale</a></li>
+              </ul>
+  
               </div>
           <div class="nav-items">
               
@@ -23,14 +25,7 @@ const createNav = () => {
           </div>
       </div>
   
-      <ul class="links-container">
-
-          <li class="link-item"><a href="#" style="font-size: 15px;" class="icon" onclick="myFunction()">&#9776;</a></li>
-          <li class="link-item"><a href="./index.html" class="link">home</a></li>
-          <li class="link-item"><a href="./women.html" class="link">women</a></li>
-          <li class="link-item"><a href="./accessories.html" class="link">accessories</a></li>
-          <li class="link-item"><a href="./sales.html" class="link">sale</a></li>
-      </ul>
+ 
       `;
   };
 
@@ -46,3 +41,25 @@ const createNav = () => {
     }
   }
   
+
+
+
+
+  // <input type="text" class="search-box" placeholder="search brand, product"/>
+  // <button onclick = 'getResults()' class="search-button"> 
+     
+  //       <p class="arama">Search</p>
+        
+  
+  //  </button>
+
+
+
+//   <ul class="links-container">
+
+//   <li class="link-item"><a href="#" style="font-size: 15px;" class="icon" onclick="myFunction()">&#9776;</a></li>
+//   <li class="link-item"><a href="./index.html" class="link">home</a></li>
+//   <li class="link-item"><a href="./women.html" class="link">women</a></li>
+//   <li class="link-item"><a href="./accessories.html" class="link">accessories</a></li>
+//   <li class="link-item"><a href="./sales.html" class="link">sale</a></li>
+// </ul>

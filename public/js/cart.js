@@ -115,6 +115,53 @@ function removeCartItemButton(obj){
  displayCart()
 }
 
+function add(cartCount) {
+   
+  let productNumbers = localStorage.getItem("productsInCart");
+  let cartNumbers = localStorage.getItem("cartNumbers");
+  cartNumbers = parseInt(cartNumbers);
+  productNumbers = parseInt(productNumbers);
+      if (productNumbers){
+          localStorage.setItem("productsInCart", productNumbers + 1);
+          localStorage.setItem("cartNumbers", cartNumbers + 1);
+          document.querySelector(".quantity-input").textContent = productNumbers + 1;
+          document.querySelector(".nav-items span").textContent = productNumbers + 1;
+      }else {
+        localStorage.setItem("productsInCart", 1);
+        document.querySelector(".quantity-input").textContent = 1;
+      }
+
+      
+      setItems();
+    
+     
+      
+}
+
+
+
+function subtract(cartCount)
+{ 
+  
+  let productNumbers = localStorage.getItem("cartNumbers");
+  productNumbers = parseInt(productNumbers);
+      if (productNumbers){
+          localStorage.setItem("cartNumbers", productNumbers - 1);
+          document.querySelector(".quantity-input").textContent = productNumbers - 1;
+          document.querySelector(".nav-items span").textContent = productNumbers - 1;
+      }else {
+        localStorage.setItem("cartNumbers", 1);
+        document.querySelector(".quantity-input").textContent = 1;
+      }
+
+      
+      
+      setItems();
+      
+      
+
+}
+
 
 
 
@@ -167,9 +214,9 @@ function displayCart() {
             <td><img src="./img/${item.tag}.png" style={{ height="120px" }} /></td>
             <td>${item.name}</td>
             <td class="count">
-                <button><i class="fa-solid fa-arrow-up"></i></button>
+                <button onclick='add(this)'><i class="fa-solid fa-arrow-up"></i></button>
                 <div class='quantity-input'>${item.inCart}</div>
-                <button><i class="fa-solid fa-arrow-down"></i></button>
+                <button onclick='subtract(this)'><i class="fa-solid fa-arrow-down"></i></button>
             </td>
             <td >${item.inCart * item.price}€</td>
             

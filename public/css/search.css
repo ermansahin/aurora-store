@@ -27,6 +27,34 @@
     grid-template-columns: repeat(4, 1fr);
     height: auto;
     grid-row-gap: 40px;
+    
+}
+
+@media screen and (max-width: 1050px) {
+    .product-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        height: auto;
+        grid-row-gap: 40px;
+    }
+}
+@media screen and (max-width: 860px) {
+    .product-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        height: auto;
+        grid-row-gap: 30px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .product-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        height: auto;
+        grid-row-gap: 20px;
+        margin-left: 50px;
+    }
 }
 
 .info-before-search {
