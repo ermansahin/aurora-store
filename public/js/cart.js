@@ -128,7 +128,9 @@ function add(cartCount) {
           document.querySelector(".nav-items span").textContent = productNumbers + 1;
       }else {
         localStorage.setItem("productsInCart", 1);
+        localStorage.setItem("cartNumbers", 1);
         document.querySelector(".quantity-input").textContent = 1;
+        document.querySelector(".nav-items span").textContent = 1;
       }
 
       

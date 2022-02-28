@@ -4,7 +4,7 @@ footer{
     padding: 40px 10vw;
     padding-bottom: 80px;
     background: #383838;
-    margin-top: 50px;
+    margin-top: auto;
 }
 
 .footer-content{
@@ -15,6 +15,18 @@ footer{
 
 .footer-content .logo{
     height: 160px;
+}
+
+@media screen and  (max-width: 640px) {
+    .footer-content .logo {
+        height: 100px;
+    }
+    .social-link1 {
+        display: block;
+    }
+    .social-link {
+        display: block;
+    }
 }
 
 
