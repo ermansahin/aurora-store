@@ -91,77 +91,130 @@ function removeCartItemButton(obj){
   <tbody class="CartContainer">
  
   </tbody>`
-  localStorage.setItem("cartNumbers" , JSON.stringify(JSON.parse(localStorage.getItem("cartNumbers"))-1))
-  document.querySelector(".nav-items span").textContent = JSON.parse(localStorage.getItem("cartNumbers"))
+ 
   let cartItems = localStorage.getItem("productsInCart");
   cartItems = JSON.parse(cartItems);
   let productContainer = document.querySelector(".CartContainer");
+  
   var newData= {}
   var array=Object.values(cartItems)
+  var deletedprice = 0
+  var counter = 0
   for (var i = 0 ; i < array.length; i++){
    if(array[i].name !== obj.name){
      newData[i] = array[i]
+   } else {
+     counter = array[i].inCart
+     deletedprice = array[i].price
    }
-   if(array[i].name === obj.name){
-    localStorage.setItem("totalCost" , JSON.stringify(JSON.parse(localStorage.getItem("totalCost"))-array[i].price))
-  }
 
   }
-
+  localStorage.setItem("totalCost" , JSON.stringify(JSON.parse(localStorage.getItem("totalCost"))-(deletedprice * counter)))
  productContainer.innerHTML = ""
  localStorage.setItem("productsInCart" ,JSON.stringify(newData))
 
-
+ localStorage.setItem("cartNumbers" , JSON.stringify(JSON.parse(localStorage.getItem("cartNumbers"))-counter))
+  document.querySelector(".nav-items span").textContent = JSON.parse(localStorage.getItem("cartNumbers"))
  displayCart()
 }
 
-function add(cartCount) {
-   
-  let productNumbers = localStorage.getItem("productsInCart");
-  let cartNumbers = localStorage.getItem("cartNumbers");
-  cartNumbers = parseInt(cartNumbers);
-  productNumbers = parseInt(productNumbers);
-      if (productNumbers){
-          localStorage.setItem("productsInCart", productNumbers + 1);
-          localStorage.setItem("cartNumbers", cartNumbers + 1);
-          document.querySelector(".quantity-input").textContent = productNumbers + 1;
-          document.querySelector(".nav-items span").textContent = productNumbers + 1;
-      }else {
-        localStorage.setItem("productsInCart", 1);
-        localStorage.setItem("cartNumbers", 1);
-        document.querySelector(".quantity-input").textContent = 1;
-        document.querySelector(".nav-items span").textContent = 1;
-      }
 
-      
-      setItems();
+
+
+function add(obj) {
+  let productContainer = document.querySelector(".CartContainer");
+   let cartItems = localStorage.getItem("productsInCart");
+   cartItems = JSON.parse(cartItems);
+   var price = 0
+   var array=Object.values(cartItems)
+   for (var i = 0 ; i < array.length; i++){
+    if(array[i].name === obj.name){
+     array[i].inCart++
+   price = array[i].price
+    } 
+ 
+   }
+   productContainer.innerHTML = ""
+   localStorage.setItem("cartNumbers" , JSON.stringify(JSON.parse(localStorage.getItem("cartNumbers"))+1))
+   document.querySelector(".nav-items span").textContent = JSON.parse(localStorage.getItem("cartNumbers"))
+ localStorage.setItem("productsInCart" ,JSON.stringify(array))
+ let shoppingCartTotal = document.querySelector(".shopping-cart-container");
+shoppingCartTotal.innerHTML = `    <table id="cart-content">
+<thead>
+  <tr>
+    <th></th>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Quantity</th>
+    <th>Price</th>
     
-     
-      
+  </tr>
+</thead>
+<tbody class="CartContainer">
+
+</tbody>
+</table>`
+  localStorage.setItem("totalCost" , JSON.stringify(JSON.parse(localStorage.getItem("totalCost"))+ price))
+
+ displayCart()
+
+
 }
 
 
+ 
 
-function subtract(cartCount)
+function subtract(obj)
 { 
   
-  let productNumbers = localStorage.getItem("cartNumbers");
-  productNumbers = parseInt(productNumbers);
-      if (productNumbers){
-          localStorage.setItem("cartNumbers", productNumbers - 1);
-          document.querySelector(".quantity-input").textContent = productNumbers - 1;
-          document.querySelector(".nav-items span").textContent = productNumbers - 1;
-      }else {
-        localStorage.setItem("cartNumbers", 1);
-        document.querySelector(".quantity-input").textContent = 1;
-      }
+  let productContainer = document.querySelector(".CartContainer");
+  let cartItems = localStorage.getItem("productsInCart");
+  cartItems = JSON.parse(cartItems);
+  var price = 0
+  var array=Object.values(cartItems)
+  for (var i = 0 ; i < array.length; i++){
+   if(array[i].name === obj.name){
+    array[i].inCart--
+    if(array[i].inCart == 0){
+      removeCartItemButton({name : array[i].name})   
+      return
+    }
+  price = array[i].price
+   } 
 
-      
-      
-      setItems();
-      
-      
+  }
+  productContainer.innerHTML = ""
+  localStorage.setItem("cartNumbers" , JSON.stringify(JSON.parse(localStorage.getItem("cartNumbers"))-1))
+  document.querySelector(".nav-items span").textContent = JSON.parse(localStorage.getItem("cartNumbers"))
+localStorage.setItem("productsInCart" ,JSON.stringify(array))
+let shoppingCartTotal = document.querySelector(".shopping-cart-container");
+shoppingCartTotal.innerHTML = `    <table id="cart-content">
+<thead>
+ <tr>
+   <th></th>
+   <th>Image</th>
+   <th>Name</th>
+   <th>Quantity</th>
+   <th>Price</th>
+   
+ </tr>
+</thead>
+<tbody class="CartContainer">
 
+</tbody>
+</table>`
+ localStorage.setItem("totalCost" , JSON.stringify(JSON.parse(localStorage.getItem("totalCost"))- price))
+
+displayCart()
+
+}
+
+function clearCart() {
+
+  localStorage.removeItem('productsInCart');
+
+  
+  displayCart();
 }
 
 
@@ -216,9 +269,9 @@ function displayCart() {
             <td><img src="./img/${item.tag}.png" style={{ height="120px" }} /></td>
             <td>${item.name}</td>
             <td class="count">
-                <button onclick='add(this)'><i class="fa-solid fa-arrow-up"></i></button>
-                <div class='quantity-input'>${item.inCart}</div>
-                <button onclick='subtract(this)'><i class="fa-solid fa-arrow-down"></i></button>
+                <button onclick='subtract(this)'  name="${item.name}"><i class="fa-solid fa-arrow-left"></i></button>
+                <input class='quantity-input' type="number" value="${item.inCart}">
+                <button onclick='add(this)' name="${item.name}" ><i class="fa-solid fa-arrow-right"></i></button>
             </td>
             <td >${item.inCart * item.price}€</td>
             
@@ -228,11 +281,11 @@ function displayCart() {
     });
 
     shoppingCartTotal.innerHTML += `
-      
+      <div class="total">
       <p class="total-container" id="total-price">Total Price : ${cartCost}€ </p>
         <a href="#" id="checkout-btn" class="cart-btn">Checkout</a>
-        <a href="#" id="clear-cart" class="cart-btn">Clear Cart</a>
-        
+        <a href="#" id="clear-cart" class="cart-btn" onclick="clearCart()">Clear Cart</a>
+        </div>
         `;
   }
 }

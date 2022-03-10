@@ -8,7 +8,7 @@ const womenCollection = () => {
             <div class="product-card">
                 <div class="product-image">
                     <img src="img/9-3-1.png" class="product-thumb" alt="">
-                    <button class="card-btn">add to shopping-cart <i class="fa-solid fa-check"></i></button> 
+                    <button class="card-btn">add to shopping-cart </button> 
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">70€</h2>
@@ -367,6 +367,8 @@ for ( let i=0; i < carts.length; i++) {
     carts[i].addEventListener('click', () => {
         cartNumbers(products[i]);
         totalCost(products[i]);
+        document.getElementsByClassName('addcart-alert').style.display = 'inherit';
+        alert('The product chosen has been successfully added to the shopping cart!')
     })
 }
 

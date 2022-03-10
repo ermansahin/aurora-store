@@ -50,6 +50,7 @@ for ( let i=0; i < carts.length; i++) {
     carts[i].addEventListener('click', () => {
         cartNumbers(products[i]);
         totalCost(products[i]);
+        alert('The product chosen has been successfully added to the shopping cart!')
     })
 }
 

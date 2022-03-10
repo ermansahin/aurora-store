@@ -7,7 +7,7 @@ const createFooter = () => {
     </div>
     <p class="footer-title">About Aurora Fashion Boutique Store</p>
     <p class="info">With the unique women style in Athens, located in Nea Smyrni district, Aurora Fashion Boutique is a must-know name for anyone who likes masterfully curated brands from all over the world. Offering clothes for women, the stores bring independent international brands as well as major labels together for a dream shopping experience. The buyers are adept at finding statement pieces, from stylish bags, to summer and winter dresses and timeless jackets. In summer, the selection of beachwear makes it an essential stop before heading to the islands while throughout the year, you’ll find accessories and brand takeovers to keep you coming back for more.</p>
-    <p class="info">Support email - ermansahin92@gmail.com </p>
+    <p class="info">Support email - <a href="ermansahin92@gmail.com">ermansahin92@gmail.com</a>  </p>
     <p class="info">Telephone - 21 3042 0743</p>
     <p class="info">Adress - Kon/nou Paleologou 26, Nea Smirni 171 22</p>
     <div class="footer-social-container">

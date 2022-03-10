@@ -10,10 +10,10 @@ const createNav = () => {
               <ul class="links-container">
 
                 <li class="link-item"><a href="#" style="font-size: 15px;" class="icon" onclick="myFunction()">&#9776;</a></li>
-                <li class="link-item"><a href="./index.html" class="link">home</a></li>
-                <li class="link-item"><a href="./women.html" class="link">women</a></li>
-                <li class="link-item"><a href="./accessories.html" class="link">accessories</a></li>
-                <li class="link-item"><a href="./sales.html" class="link">sale</a></li>
+                <li class="link-item"><a href="./index.html" class="link">Home</a></li>
+                <li class="link-item"><a href="./women.html" class="link">Women</a></li>
+                <li class="link-item"><a href="./accessories.html" class="link">Accessories</a></li>
+                <li class="link-item"><a href="./sales.html" class="link">Sale</a></li>
               </ul>
   
               </div>
